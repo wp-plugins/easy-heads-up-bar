@@ -46,9 +46,9 @@ Feel free to ask any questions you may have at the [Support Forum](http://suppor
 
 == Screenshots ==
 
-1. This is the Easy Heads Up Bar manager
-2. This is the Easy Heads Up Bar editor
-3. This an example Easy Heads Up Bar on a page
+1. This an example Easy Heads Up Bar on a page
+2. This is the Easy Heads Up Bar manager
+3. This is the Easy Heads Up Bar editor
 
 == Upgrade Notice ==
 

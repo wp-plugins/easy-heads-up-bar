@@ -35,7 +35,7 @@ This plugin adds an easy to use notification bar to the top of your WordPress we
 
 Install the plugin via WordPress's installation system then activate it
 
-OR
+=OR=
 
 1. Upload the `easy-heads-up-bar` directory to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
@@ -49,6 +49,8 @@ Feel free to ask any questions you may have at the [Support Forum](http://suppor
 1. This an example Easy Heads Up Bar on a page
 2. This is the Easy Heads Up Bar manager
 3. This is the Easy Heads Up Bar editor
+4. Color for the Easy Heads Up Bar in the Editor for the Easy Heads Up Bar
+5. Character Count down in the Editor for the Easy Heads Up Bar
 
 == Upgrade Notice ==
 

@@ -416,6 +416,7 @@
     border-bottom: 1px dashed #E0E0E0;
     padding: 8px;
  }
+
  .ehu-list-table td a {font-weight: bold;text-decoration: none;}
  .ehu_bar_off
  {
@@ -436,5 +437,12 @@
  .ehu-info-box ul {
    margin-left: 8px;
  }
-
+  
+ .colorpicker input {
+     background: transparent !important;
+     border-radius: 0 0 0 0;
+     border: none;
+     color: #FFF;
+ }
+  
   br.css-c-f {clear:both;display:block;height:1px;margin:-1px 0 0 0;}

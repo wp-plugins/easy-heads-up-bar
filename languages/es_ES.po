@@ -1,0 +1,163 @@
+# Copyright (C) 2010 Easy Heads Up Bar
+# This file is distributed under the same license as the Easy Heads Up Bar package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Easy Heads Up Bar 0.1\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/easy-heads-up-bar\n"
+"POT-Creation-Date: 2011-09-29 05:02:11+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2011-09-30 17:58-0500\n"
+"Last-Translator: Richard Cotrina <thefighter14@gmail.com>\n"
+"Language-Team: \n"
+"X-Poedit-Language: Spanish\n"
+
+#: lib.php:221
+msgid "Options Page"
+msgstr "Opciones"
+
+#: lib.php:229
+#: lib.php:230
+msgid "Bar Editor"
+msgstr "Editor de Barras"
+
+#: lib.php:240
+#: lib.php:281
+#: lib.php:748
+msgid "You do not have sufficient permissions to access this page."
+msgstr "No tienes suficientes permisos para acceder a esta página."
+
+#: lib.php:243
+msgid "General Settings"
+msgstr "Configuración General"
+
+#: lib.php:261
+msgid "Plugins News from BeforeSites"
+msgstr "Noticias desde BeforeSites"
+
+#: lib.php:285
+msgid "Add New"
+msgstr "Agregar nuevo"
+
+#: lib.php:289
+#: lib.php:301
+msgid "Update Failed"
+msgstr "La actualización falló."
+
+#: lib.php:294
+msgid ""
+"New Bar Created, add another below if you like, or go back to the \n"
+"                    <a href=\"admin.php?page=ehu_options_pg\">management screen</a>"
+msgstr ""
+"Nueva Barra Creada, si deseas agrega otra debajo, o regresa a la página de  \n"
+"                    <a href=\"admin.php?page=ehu_options_pg\">Gestión de Barras</a>"
+
+#: lib.php:306
+msgid ""
+"Update has been made. Continue editing, or go back to the \n"
+"                      <a href=\"admin.php?page=ehu_options_pg\">management screen</a>"
+msgstr ""
+"Se ha actualizado correctamente. Continúe editando, o regrese a la página de \n"
+"                      <a href=\"admin.php?page=ehu_options_pg\">Gestión de Barras</a>"
+
+#: lib.php:327
+msgid "New Bar Title:"
+msgstr "Título de la barra:"
+
+#: lib.php:329
+msgid "Heads Up Bar"
+msgstr "Heads Up Bar"
+
+#: lib.php:330
+msgid "Easy Head Up Bar Text Add Your Message Here"
+msgstr "Agregue su mensaje aquí."
+
+#: lib.php:331
+msgid "Link text"
+msgstr "Enlace"
+
+#: lib.php:332
+msgid "http://www.beforesite.com"
+msgstr "http://www.beforesite.com"
+
+#: lib.php:335
+msgid "home"
+msgstr "inicio"
+
+#: lib.php:354
+msgid "Editing:"
+msgstr "Editando:"
+
+#: lib.php:409
+msgid "Don't forget the http:// or https://"
+msgstr "Incluir http:// o https://"
+
+#: lib.php:516
+msgid "Bar Title"
+msgstr "Título de la Barra"
+
+#: lib.php:517
+msgid "Dates"
+msgstr "Fechas"
+
+#: lib.php:518
+msgid "Location"
+msgstr "Ubicación"
+
+#: lib.php:519
+msgid "Active"
+msgstr "Activo"
+
+#: lib.php:520
+msgid "Remove"
+msgstr "Eliminar"
+
+#: lib.php:541
+msgid "Deactivate"
+msgstr "Desactivar"
+
+#: lib.php:544
+msgid "Activate"
+msgstr "Activar"
+
+#: lib.php:547
+msgid " thru"
+msgstr "a través"
+
+#: lib.php:549
+msgid "Bar Expires"
+msgstr "Expiración:"
+
+#: lib.php:551
+msgid "Bar Starts on "
+msgstr "Inicio:"
+
+#: lib.php:559
+msgid "Delete"
+msgstr "Eliminar"
+
+#: lib.php:832
+msgid "Donate $5, $10, $20"
+msgstr "Donar $5, $10, $20"
+
+#. Plugin Name of the plugin/theme
+msgid "Easy Heads Up Bar"
+msgstr "Easy Heads Up Bar"
+
+#. Plugin URI of the plugin/theme
+msgid "http://www.beforesite.com/plugins/easy-heads-up-bar"
+msgstr "http://www.beforesite.com/plugins/easy-heads-up-bar"
+
+#. Description of the plugin/theme
+msgid "An Easy to use notification (heads up) bar for your WordPress website with a linked call to action"
+msgstr "Agrega una barra de notificación a tu sitio Wordpress con texto y enlace personalizado"
+
+#. Author of the plugin/theme
+msgid "Greenweb"
+msgstr "Greenweb"
+
+#. Author URI of the plugin/theme
+msgid "http://www.greenvillweb.us"
+msgstr "http://www.greenvillweb.us"
+

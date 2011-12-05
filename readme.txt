@@ -1,7 +1,7 @@
 === Easy Heads Up Bar ===
 Contributors: Greenweb
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7YA9D9G4TE9BA
-Tags: heads up bar, heads up, headsup, headsupbar, popup, top of the page, toolbar, notification bar, self promotion, beforesite, hello bar, hellobar
+Tags: heads up bar, heads up, headsup, headsupbar, popup, top of the page, toolbar, notification bar, notification, self promotion, beforesite, 
 Requires at least: 3.1
 Tested up to: 3.2
 Stable tag: trunk

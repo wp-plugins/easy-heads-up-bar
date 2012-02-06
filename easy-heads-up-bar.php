@@ -45,7 +45,7 @@ Author URI: http://www.greenvillweb.us
   $ehu_the_blog_name      = get_bloginfo('name');
   $ehu_the_default_email  = get_bloginfo('admin_email');
   
-  
+  // check for ssl 
   if ( preg_match( '/^https/', $ehu_plugin_loc ) && !preg_match( '/^https/', get_bloginfo('url') ) )
   	$ehu_plugin_loc = preg_replace( '/^https/', 'http', $ehu_plugin_loc );
   

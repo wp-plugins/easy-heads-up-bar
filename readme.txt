@@ -61,6 +61,6 @@ Please feel free to make suggestions and bug reports in the wordpress.org forum
 == Changelog ==
 
 = 0.4 =
-New feature: Link no opens in a new window
+New feature: Link now opens in a new window
 Bug Fix: Cleaned up a few empty variable error messages
 Bug Fix: Change the css for compatibility with 3.5

@@ -42,7 +42,7 @@ Install the plugin via WordPress's installation system then activate it
 
 == Frequently Asked Questions ==
 
-Feel free to ask any questions you may have at the [Support Forum](http://support.beforesite.com/forum/easy-heads-up-bar "Great WordPress Plugins")
+Feel free to ask any questions you may have at the [Support Forum](http://wordpress.org/support/plugin/easy-heads-up-bar)
 
 == Screenshots ==
 
@@ -54,9 +54,13 @@ Feel free to ask any questions you may have at the [Support Forum](http://suppor
 
 == Upgrade Notice ==
 
-**This is the first version**
+Please note this is still a beta release.
+The entire plugin's code will is going to be rewritten in January.
+Please feel free to make suggestions and bug reports in the wordpress.org forum
 
 == Changelog ==
 
-= 0.1 =
-* initial beta release
+= 0.4 =
+New feature: Link no opens in a new window
+Bug Fix: Cleaned up a few empty variable error messages
+Bug Fix: Change the css for compatibility with 3.5

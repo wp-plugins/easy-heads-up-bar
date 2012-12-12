@@ -26,7 +26,7 @@
           if(!is_admin())
             add_action('init', array( $this, 'ehu_frontend_init' ) );
           
-          add_action('admin_head', array( $this, 'ehu_icon_opacity' ) );
+         
            
             
           add_action('wp_head', array( $this, 'ehu_frontend_js' ) );
@@ -63,13 +63,13 @@
         
         function ehu_fe_show_bar($i=1)
         {
-          if($i>20){ exit; } // this is so we dont have ab infinite loop if there are no records
+          if($i>20){ exit; } // this is so we don't have ab infinite loop if there are no records
           $today = date("m/d/Y");
           
           if ( $_POST['home'] == '1' ) {
-            $xtra .= " AND show_where != 'interior'";
+            $xtra = " AND show_where != 'interior'";
           }else{
-            $xtra .= " AND show_where != 'home'";
+            $xtra = " AND show_where != 'home'";
           }
           
           $xtra .= " ORDER BY RAND() LIMIT 0,1";
@@ -128,12 +128,14 @@
                     
             $ehu_link_style = "color:$ehu_linkColor;";
             
-            
+            // open in new window
+            $ehu_o_n_window = (isset($ehu_options['winTarget'])) ? $ehu_options['winTarget'] : 0 ;
+            $ehu_target = ($ehu_o_n_window == 1 ) ? "target='_blank'" : "" ;
             $ehu_b_html  = '<div id="ehu_bar" style="'.$ehu_bar_style.'">';
             if( $ehu_message !='' || $ehu_message != null )
               $ehu_b_html .= '<span id="ehu_txt">'.$ehu_message.'</span>&nbsp;';
             if( ($ehu_link_text !='' || $ehu_link_text != null) && ($ehu_link_url !='' || $ehu_link_url != null)  )
-              $ehu_b_html .= '<a id="ehu_link" style="'.$ehu_link_style.'" href="'.$ehu_link_url.'">'.$ehu_link_text.'</a>';
+              $ehu_b_html .= '<a id="ehu_link" style="'.$ehu_link_style.'" href="'.$ehu_link_url.'" '.$ehu_target.'>'.$ehu_link_text.'</a>';
             
             $ehu_b_html .= '</div>';
             
@@ -141,38 +143,7 @@
             die('');
           }        
         } // End fun ehu_fe_show_bar()
-        
-        // ==============
-        // = Admin area =
-        // ==============
-        // lets make or icon POP
-        function ehu_icon_opacity()
-        {
-          echo ("
-            <style type=\"text/css\">
-            
-              #toplevel_page_ehu_options_pg img
-              {
-                opacity:1!important; 
-                filter:alpha(opacity=100)!important;
-              }
-              #toplevel_page_ehu_options_pg.wp-menu-open img,
-              #toplevel_page_ehu_options_pg:hover img
-              {
-                display:none;
-              }
-              #toplevel_page_ehu_options_pg.wp-menu-open div.wp-menu-image 
-              {
-                background: url('".EHU_FRONT_URL."images/ehu-icon-open.png') no-repeat 6px 7px transparent;');
-              }
-              #toplevel_page_ehu_options_pg:hover div.wp-menu-image 
-              {
-                background: url('".EHU_FRONT_URL."images/ehu-icon-over.png') no-repeat 6px 7px transparent;');
-              }
 
-            </style>
-          ");
-        }
         
         // Register ehu stylesheet
         function ehu_admin_init()
@@ -186,7 +157,8 @@
 		  		wp_register_style( 'jquery-ui-datepicker', EHU_URL . 'css/ui.datepicker.css', false, EHU_VERSION,'all' );
 		  		wp_register_style( 'ehuStylesheet', EHU_URL . 'css/stylesheet.css', false, EHU_VERSION,'all' );
 		  							
-        	$page  = $_GET['page'];
+        	$page = (isset($_GET['page'])) ? $_GET['page'] : false ;
+          if ($page==false) return;
         	$ehu_page = explode("_", $page);
         	if( $ehu_page[0] == "ehu" )
         	{
@@ -249,7 +221,7 @@
                       </div>';
           if( !$the_data )
           {
-            echo '<div class="no-ehu-bars">You have no Heads up Bars add one now</div>';
+            echo $ehu_tb.'<div class="no-ehu-bars">You have no Heads up Bars add one now</div>';
           } //end if 
             else
           {
@@ -283,7 +255,9 @@
      
           echo '<div class="wrap ehu" id="add_new_ehubar_page">';
         	echo '<h2>'.EHU_NAME.' ~ '.__('Add New').'</h2>';
-        	if (!isset($_POST['ehu_id']) && $_POST['save']=="Save")
+
+          $ehu_save = (isset($_POST['save'])) ? $_POST['save'] : null ;
+        	if (!isset($_POST['ehu_id']) && $ehu_save=="Save")
           {
             if (!$this->ehu_update_bar_data()) {
               echo "<div class='ehu_updated ehu_error'>".__("Update Failed")."</div>";
@@ -310,14 +284,12 @@
           }
           
           
-          
+          $get_ehu_id = null;
           if( isset($_GET['ehu_id']) ) {
-            
             $ehu_id         = $_GET['ehu_id'];
             $ehu_bars_data  = $this->ehu_bars_data($ehu_id);
             $get_ehu_id     = "&ehu_id=$ehu_id";
             if(!$ehu_bars_data) wp_die("NO DATA");
-            
           }
           
           echo('<form action="'.$_SERVER['PHP_SELF'].'?page=ehu_newbar_pg'.$get_ehu_id.'" method="post" id="add_new_ehubar_form"> ');
@@ -330,6 +302,7 @@
              $message		    =		__("Easy Head Up Bar Text Add Your Message Here");
              $link_text 	  =		__("Link text");
              $link_url		  =		__("http://www.beforesite.com");
+             $winTarget     =   0;
              $start_date	  =		'';
              $end_date	    =		'';
              $show_where	  =		__("home");
@@ -339,6 +312,7 @@
              $is_home       =   '';
              $is_int        =   '';
              $is_all        =   '';
+            
             
             if($show_where=="home")       $is_home = "selected";
             if($show_where=="interior")   $is_int  = "selected";
@@ -362,8 +336,9 @@
            $end_date	  =	 $this->ehu_convert_dates($ehu_bars_data['end_date']);
            $show_where	=	 $ehu_bars_data['show_where'];
            $options     =  json_decode($ehu_bars_data['options'],true);
-     
+          
            
+
            $bgColor     =  $options['bgColor'];
            $textColor   =  $options['textColor'];
            $linkColor   =  $options['linkColor'];
@@ -381,6 +356,8 @@
                    
           echo('<input type="hidden" name="ehu_id" value="'.$ehu_id.'" />');
           }
+          
+
           // set up Prviewer's HTML
           $ehu_preview ='
             <span class="ehu-label">Preview</span>
@@ -390,33 +367,43 @@
               </div>
     	      </div>
           '; // end Preview
-     
+          
+          // TODO Clean this up!
+          $win_target = (isset($options['winTarget'])) ? $options['winTarget'] : null ;
+          
           // output page
           echo('
                   		    <div class="ui-1-1 ehu_bar_title">
-                  		      <label for="ehu_title">'.$ehu_bar_title.'</label>           <input type="text" 	name="title"       value="'.$title.'" id="ehu_title"/>
+                  		      <label for="ehu_title">'.$ehu_bar_title.'</label>           
+                            <input type="text" 	name="title"       value="'.$title.'" id="ehu_title"/>
                             <br class="css-c-f" />
                           </div>
                           '.$ehu_preview.'            
                           
                           <label for="ehu_message">message, <em>limited to 85 Characters</em></label>
-                    	                                                            <input type="text" 			name="message"     value="'.$message.'" id="ehu_message"/><div id="ehu_message_charsLeft">0</div>
+                    	       <input type="text" 			name="message"     value="'.$message.'" id="ehu_message"/><div id="ehu_message_charsLeft">0</div>
                           <div class="ui-1-1">
                             <div class="left ui-2-1">
-                    	        <label for="ehu_link_text">     link text</label>       <input type="text" 	name="link_text"   value="'.$link_text.'" id="ehu_link_text"/>
+                    	        <label for="ehu_link_text">     link text</label>       
+                              <input type="text" 	name="link_text"   value="'.$link_text.'" id="ehu_link_text"/>
                             </div>
                             <div class="left ui-2-1">
-                    	        <label for="ehu_link_url">      link url <em>'.__("Don't forget the http:// or https://").'</em></label>        <input type="text" 	name="link_url"    value="'.$link_url.'" id="ehu_link_url"/>
+                    	        <label for="ehu_link_url">      link url <em>'.__("Don't forget the http:// or https://").'</em></label>        
+                              <input type="text" 	name="link_url"    value="'.$link_url.'" id="ehu_link_url"/>
                             </div>
                           </div>
-     
+                          <div class="ui-1-1">
+                            <label>Open in new window:  <input type="checkbox" value="1" name="options[winTarget]" '.$win_target.'> </label>
+                          </div>
                           <div class="ui-1-1">
                             <div class="ui-2-1 left">
                     	        <div class="ui-2-1 left">  
-                    	          <label for="ehu_start_date">   start date</label>      <input type="text" name="start_date"  value="'.$start_date.'" id="ehu_start_date"/>
+                    	          <label for="ehu_start_date">   start date</label>      
+                                <input type="text" name="start_date"  value="'.$start_date.'" id="ehu_start_date"/>
                     	        </div>
                     	        <div class="ui-2-1 left">
-                    	          <label for="ehu_end_date">     end date</label>        <input type="text" name="end_date" value="'.$end_date.'" id="ehu_end_date"/>
+                    	          <label for="ehu_end_date">     end date</label>        
+                                <input type="text" name="end_date" value="'.$end_date.'" id="ehu_end_date"/>
                     	        </div>
                     	        <br class="css-c-f" />
                     	          <label for="show_where">Show bar on </label>
@@ -474,7 +461,7 @@
           $sql            =  "SELECT * FROM $ehu_data $ehu_where";
           
           $result         =   mysql_query($sql);
-          
+          if (mysql_num_rows($result) == 0) return false;
           if($result) 
           {
               while ( $row = mysql_fetch_assoc($result) )
@@ -490,7 +477,6 @@
           	  	$return['options']        =   $row['options'];
           	  	$return['active']         =   $row['active'];
               }
-              if(!row) return false;                
             return $return;
           }else{
             return false;
@@ -507,7 +493,7 @@
           $ehu_data       =   $wpdb->prefix . $plugin_prefix . "data";
           $sql            =  "SELECT * FROM $ehu_data $order_by";
           $result         =   mysql_query($sql);
-          
+          if (mysql_num_rows($result) == 0) return false;
           if($result) 
           {
               $table = '<table border="0" cellpadding="0" cellspacing="0" class="ehu-list-table">';
@@ -593,8 +579,8 @@
           {
             foreach($_POST AS $key => $value) 
             { 
-              ${$skey} = $value;
-                if($skey !=="save" && $value !="")
+              ${$key} = $value;
+                if(${$key} !=="save" && $value !="")
                 {
                     if(!is_array($value)){
                        ${$key} = $value;

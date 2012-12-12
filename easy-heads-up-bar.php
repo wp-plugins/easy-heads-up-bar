@@ -3,7 +3,7 @@
 Plugin Name: Easy Heads Up Bar
 Plugin URI: http://www.beforesite.com/plugins/easy-heads-up-bar
 Description: An Easy to use notification (heads up) bar for your WordPress website with a linked call to action
-Version: 0.1
+Version: 0.4
 Author: Greenweb
 Author URI: http://www.greenvillweb.us 
 */
@@ -55,7 +55,6 @@ Author URI: http://www.greenvillweb.us
   define( 'EHU_PATH',           plugin_dir_path(__FILE__) );
   define( 'EHU_BASENAME',       plugin_basename( __FILE__ ) );
   
-  define( 'EHU_WEB_URL',        $ehu_the_web_add );
   define( 'EHU_NAME',           $ehu_plugname );
   define( 'EHU_S_NAME',         $ehu_plug_shortname );
   define( 'EHU_VERSION',        '1.0' );

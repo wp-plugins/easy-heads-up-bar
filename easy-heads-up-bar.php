@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: Easy Heads Up Bar V2
+Plugin Name: Easy Heads Up Bar
 Plugin URI: http://www.beforesite.com/plugins/easy-heads-up-bar
 Description: An Easy to use notification (heads up) bar for your WordPress website with a linked call to action
-Version: 0.4
+Version: 2
 Author: Greenweb
 Author URI: http://www.greenvillweb.us 
 */
@@ -50,15 +50,10 @@ Author URI: http://www.greenvillweb.us
   if ( preg_match( '/^https/', $ehb_plugin_loc ) && !preg_match( '/^https/', get_bloginfo('url') ) )
     $ehb_plugin_loc = preg_replace( '/^https/', 'http', $ehb_plugin_loc );
   
-  #define( 'EHB_FRONT_URL',      $ehb_plugin_loc );
+  
   
   define( 'EHB_URL',            plugin_dir_url(__FILE__) );
-  #define( 'EHB_PATH',           plugin_dir_path(__FILE__) );
-  #define( 'EHB_BASENAME',       plugin_basename( __FILE__ ) );
-  #define( 'EHB_NAME',           $ehb_plugname );
-  #define( 'EHB_S_NAME',         $ehb_plug_shortname );
   define( 'EHB_VERSION',        '2.0' );
-  #define( 'EHB_PREFIX' ,        "ehb_");
   $get_ehb_version = get_option( 'ehb_version', false );
   $update_ehb_version = (!$get_ehb_version) ? update_option( 'ehb_version', EHB_VERSION ) : false;
   

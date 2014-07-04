@@ -2,7 +2,7 @@
 Contributors: Greenweb
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7YA9D9G4TE9BA
 Tags: heads up bar, heads up, heads up, heads up bar, Callout Bar, top of the page, notification bar, notification, self promotion, floating-bar, beforesite
-Requires at least: 3.6
+Requires at least: 3.9
 Tested up to: 3.9.9
 Stable tag: trunk
 License: GPLv2 or later
@@ -41,11 +41,11 @@ This plugin adds an easy to use notification bar to the top of your WordPress we
 * Add images to bar
 * Use another plugin's shortcodes in bar
 * Choose between the top or the bottom of a page to display your bar
-* Allow your users to hide and unhide the Heads Up Bar
+* Allow your users to hide or show the Heads Up Bar
 
 == Installation ==
 
-Install the plugin via WordPress's installation system then activate it
+Install the plugin via WordPress's installation system then activate it.
 
 =OR=
 
@@ -61,10 +61,10 @@ Install the plugin via WordPress's installation system then activate it
  * **A:** Yes.
 
 * **Q:** Is it Possible to remove the line under bar?
- * **A:** Yes, just set the color of the line to the same color as the bar's background.
+ * **A:** Yes, in the bar's edit screen set the color option of the line to the same color as the bar's background.
 
 * **Q:** Can the bar remain at the top of the screen when I scroll?
- * **A:** Not right now, this may be added later. But there is nothing stopping you from achiving this effect by adding a bit of CSS to your theme. You can target the bar using it's ID *#ehu-bar*
+ * **A:** Not right now, this may be added later. But there is nothing stopping you from archiving this effect by adding a bit of CSS to your theme. You can target the bar using it's ID *#ehu-bar*
 
 * Feel free to ask any questions you may have at the [Support Forum](http://wordpress.org/support/plugin/easy-heads-up-bar)
 
@@ -78,7 +78,15 @@ Install the plugin via WordPress's installation system then activate it
 6. New features added to version 2 of the Easy Heads Up Bar
 
 == Changelog ==
+= 2.1.1 =
 
+*Minor Changes*
+
+* New CSS to override Theme's CSS with relation to padding on HTML elements like p tags
+* New bar open and close icons
+
+= 2.1 =
+Changed out a br tag for a span tag to address a spacing issue in IE9
 = 2.0 =
 
 *New features:*
@@ -92,10 +100,8 @@ Install the plugin via WordPress's installation system then activate it
 * Add images to bars
 * Use another plugin's shortcodes
 * Choose between the top or the bottom of a page to display your bar
-* Allow your users to hide and unhide the Heads Up Bar
+* Allow your users to hide and show the Heads Up Bar
 
 == Upgrade Notice ==
 
-This is a major update the old interface this is completely replaced with the standard WordPress user interface. 
-Exsiting bars will be automaticaly converted to the new system. 
-The wp_ehu_bar & wp_ehu_stats tables will be removed from the database as these where added by the last version of the plugin and need to be cleaned up.
+This is a very minor update that adds new open and close bar icons and addresses a layout issue experienced by some themes.

@@ -21,8 +21,9 @@ class ehbAdmin
       return;
     // Setup help tab args.
     $making_use_of_txt =  '<h3>'.__('Using Easy Heads Up Bar','ehb_lang').'</h3>';
-    $ehb_forum_text  = "<h3>".__("Do you need more help?",'ehb_lang')."</h3><p>". __("If you need support or want to suggest improvements to the plugin please visit the ",'ehb_lang');
-    $ehb_forum_text .= '<a href="http://wordpress.org/support/plugin/easy-sign-up/">'.__("plugin's support forum",'ehb_lang').'</a></p>';
+    $ehb_forum_text  = "<p>". __("If you need support or want to suggest improvements to the plugin please visit the ",'ehb_lang');
+    $ehb_forum_text .= '<a href="http://wordpress.org/support/plugin/easy-heads-up-bar/" target="_blank">'.__("support forum",'ehb_lang').'</a>';
+    $ehb_forum_text .= __(" or ",'ehb_lang').'<a href="http://wordpress.org/plugins/easy-heads-up-bar/faq/" target="_blank">'.__("FAQ page",'ehb_lang').'</a></p>';
 
     $making_use_of_args = array(
       'id'      => 'ehb_making_use_of_tab', //unique id for the tab
@@ -43,7 +44,7 @@ class ehbAdmin
     );
     // Add the help tabs.
     $making_use_of_tabs   = $screen->add_help_tab( $making_use_of_args );
-    $ehb_extras_tabs      = $screen->add_help_tab( $ehb_extras_args );
+    /* $ehb_extras_tabs      = $screen->add_help_tab( $ehb_extras_args ); */
     $ehb_extras_news_tabs = $screen->add_help_tab( $ehb_extras_news_args );
   }
   // Register Custom Post Type

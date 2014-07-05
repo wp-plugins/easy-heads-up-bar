@@ -79,8 +79,14 @@ Install the plugin via WordPress's installation system then activate it.
 
 == Changelog ==
 
-= 2.1.2 =
+= 2.1.3 =
 
+Minor change to work around the shareaholic plugin
+
+* Removed apply_filters('the_content', $bar_content); 
+* Added  do_shortcode( $bar_content );
+
+= 2.1.2 =
 * New Bar Display option that floats the bar over the content and fixes it while scrolling. 
 * Added jQuery to ensure that the bar display well if there is the WordPress Admin Bar above it.
 
@@ -92,7 +98,9 @@ Install the plugin via WordPress's installation system then activate it.
 * New bar open and close icons
 
 = 2.1 =
-Changed out a br tag for a span tag to address a spacing issue in IE9
+
+* Changed out a br tag for a span tag to address a spacing issue in IE9
+
 = 2.0 =
 
 *New features:*
@@ -109,4 +117,5 @@ Changed out a br tag for a span tag to address a spacing issue in IE9
 * Allow your users to hide and show the Heads Up Bar
 
 == Upgrade Notice ==
-New Bar Display Option - see the bar editor and an aesthetic update to the open and close buttons
+
+Minor change to work around the shareaholic plugin

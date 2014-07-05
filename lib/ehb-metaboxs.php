@@ -122,6 +122,17 @@ function ehb_metaboxes( array $meta_boxes ) {
 				'default' => 'top',
 			),
 			array(
+				'name'    => __( 'Bar Display', 'ehb_lang' ),
+				'desc'    => __( 'It is not a good idea to choose <em>fixed</em> if you disable the <em>Hide Bar</em> option.', 'ehb_lang' ),
+				'id'      => $prefix . 'bar_position',
+				'type'    => 'radio_inline',
+				'options' => array(
+					'fixed' 		=> __( 'Fixed', 'ehb_lang' ),
+					'relative'  => __( 'Default', 'ehb_lang' ),
+				),
+				'default' => 'relative',
+			),
+			array(
 				'name'    => __( 'Hide Bar', 'ehb_lang' ),
 				'desc'    => __( 'Allow the user to hide the bar, this will set a cookie that will ensure the bar stays hidden. <br> If your user wants to open the bar they can click on an unobtrusive tab.', 'ehb_lang' ),
 				'id'      => $prefix . 'hide_bar',

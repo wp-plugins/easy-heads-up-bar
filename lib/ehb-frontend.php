@@ -69,12 +69,16 @@ class ehbFrontend
               $bar_content_width  = get_post_meta( $bar_ID,"{$prefix}bar_content_width", true );
               // Set a default width to 100%
               $bar_content_width  = ( $bar_content_width == "" )  ? "80" : $bar_content_width;
+              // get bar position
+              $bp                 = get_post_meta( $bar_ID,"{$prefix}bar_position", true );
+              $bar_position       = (!empty( $bp ) ) ? $bp : 'relative' ;
               
               // lets build a bar workshop ;)
               $bar_html .= "<div id='ehu-bar'";
               $bar_html .= " data-bar-link-color='{$bar_link_color}'";
               $bar_html .= " data-bar-location='{$bar_location}'";
               $bar_html .= " data-hide-bar='{$bar_hide}'";
+              $bar_html .= " class='ehu-{$bar_location}-{$bar_position}'";
               $bar_html .= " style='background-color:{$bar_bg_color};border-{$bar_border_locatoin}: 4px solid {$bar_border_color};padding: 6px;'>";
               
               if( $bar_hide == "yes" )

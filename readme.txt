@@ -78,6 +78,12 @@ Install the plugin via WordPress's installation system then activate it.
 6. New features added to version 2 of the Easy Heads Up Bar
 
 == Changelog ==
+
+= 2.1.2 =
+
+* New Bar Display option that floats the bar over the content and fixes it while scrolling. 
+* Added jQuery to ensure that the bar display well if there is the WordPress Admin Bar above it.
+
 = 2.1.1 =
 
 *Minor Changes*
@@ -103,5 +109,4 @@ Changed out a br tag for a span tag to address a spacing issue in IE9
 * Allow your users to hide and show the Heads Up Bar
 
 == Upgrade Notice ==
-
-This is a very minor update that adds new open and close bar icons and addresses a layout issue experienced by some themes.
+New Bar Display Option - see the bar editor and an aesthetic update to the open and close buttons

@@ -1,6 +1,26 @@
 jQuery(document).ready(function($) {
 	var $ehuBar = $('div#ehu-bar');
 	var $ehuBarLinks = $('div#ehu-bar a');
+	var $hideShowBarSpeed = 'slow';
+	var $dhuCloseButton = $('#ehu-close-button');// close button
+	var $dhuOpenButton = $('#ehu-open-button');// Open button
+	var $wpAdminBar = $('#wpadminbar').html();
+	if($wpAdminBar !== 'undefined') { 
+		var $dhuOpenButtonTop = '38px';
+	}else{ 
+		var $dhuOpenButtonTop = '10px';
+	};
+	console.log("$dhuOpenButtonTop: "+$dhuOpenButtonTop,"$wpAdminBar :" +$wpAdminBar);
+	var $ehuCookie = ehuReadCookie('ehuBarStatus');	
+	// Check the Cookie
+	if($ehuCookie === 'hidden') {
+		$ehuBar.hide();
+		$dhuOpenButton.css({
+				'visibility': 'visible'	
+		});
+	}else{
+		$hideShowBarSpeed = 'slow';
+	}
 	// Check the bar is here
 	if (typeof $ehuBar.html() !== 'undefined') {
 		$ehuBar.remove();
@@ -10,34 +30,26 @@ jQuery(document).ready(function($) {
 		if ($barLocatoin=='top') {
 			$ehuBar.prependTo('body');
 		}else{
-					$ehuBar.appendTo('body');
+			$ehuBar.appendTo('body');
 		};
+
 		$ehuBarLinks.css({'color':$linkColor});
 
-		// close button
-		var $dhuCloseButton = $('#ehu-close-button');
 		if (typeof $dhuCloseButton.html() !== 'undefined') {
-			var $dhuCloseButtonPosition = $dhuCloseButton.position();
-			
-			// Open button
-			var $dhuOpenButton = $('#ehu-open-button');
 			if ($barLocatoin=='top') 
 			{
 				$dhuOpenButton.css({
-					'top': $dhuCloseButtonPosition.top,	
+					'top': $dhuOpenButtonTop
 				});
 			}else{
 				$dhuOpenButton.css({
-					'bottom': $dhuCloseButtonPosition.bottom,	
+					'bottom': '10px'
 				})
 			};
-			$dhuOpenButton.css({
-				'right': $dhuCloseButtonPosition.right,	
-			});
 
 			// hide action
 			$dhuCloseButton.click(function() {
-			  $( this ).parent().slideUp( "100", function() {
+			  $( this ).parent().slideUp( $hideShowBarSpeed, function() {
 			    	$dhuOpenButton.css({
 							'visibility': 'visible'	
 						});
@@ -51,22 +63,15 @@ jQuery(document).ready(function($) {
 				// Unset Cookie
 				ehuEraseCookie('ehuBarStatus');
 				$dhuOpenButton.css({'visibility': 'hidden'	});
-			  $ehuBar.slideDown( "slow", function() {
+			  $ehuBar.slideDown( $hideShowBarSpeed, function() {
 					if ($barLocatoin=='top') 
 					{
 						window.scrollTo(0,0);
 					}else{
-						window.scrollTo(0,$dhuCloseButtonPosition.top);
+						window.scrollTo(0,$dhuOpenButtonTop);
 					};
 			  });
 			});
-
-			// Check the Cookie
-			var $ehuCookie = ehuReadCookie('ehuBarStatus');
-
-			if($ehuCookie == 'hidden') {
-				$dhuCloseButton.trigger( "click" );
-			}
 
 		}; // end check for button
 	}; // end Check for bar

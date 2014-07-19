@@ -12,6 +12,9 @@ class ehbFrontend
   function ehu_run_show_bar(){
      add_filter( 'wp_footer', array(&$this, 'ehu_show_bar') );
   }
+  /**
+  * Displays the bar on the front end
+  **/
   function ehu_show_bar()
   {
     // Set up the vars
@@ -83,6 +86,7 @@ class ehbFrontend
               
               // lets build a bar workshop ;)
               $bar_html .= "<div id='ehu-bar'";
+              $bar_html .= " data-bar-text-color='{$bar_text_color}'";
               $bar_html .= " data-bar-link-color='{$bar_link_color}'";
               $bar_html .= " data-bar-location='{$bar_location}'";
               $bar_html .= " data-hide-bar='{$bar_hide}'";
@@ -95,10 +99,9 @@ class ehbFrontend
                 $bar_html .=      "title='".__('Close Bar','ehb_lang')."'>";
                 $bar_html .=      "X</div>";
               }
-
+              
               $bar_html .= "  <div id='ehu-bar-content' style='display:block;color:{$bar_text_color};padding:2px;margin:0 auto;width:{$bar_content_width}%;'>";
-              $clean_up_shareaholic = ehu_clean_up_shareaholic(); // located in ehb-utility-functions.php
-              $bar_html .= apply_filters('the_content', $bar_content); 
+              $bar_html .= do_shortcode($bar_content); 
               $bar_html .= "  </div>";
               $bar_html .= "</div>";
               $bar_html .= "  <div id='ehu-open-button' ";
@@ -136,9 +139,6 @@ class ehbFrontend
     wp_register_style('ehb_stylesheet', $ehb_css_url,false, EHB_VERSION,'all');
     wp_enqueue_style( 'ehb_stylesheet');
   }
-
-
-
 
 }
 $ehbFrontend = new ehbFrontend();

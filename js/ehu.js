@@ -1,6 +1,7 @@
 jQuery(document).ready(function($) {
     var $ehuBar = $('div#ehu-bar');
     var $ehuBarLinks = $('div#ehu-bar a');
+    var $ehuBarContent = $('div#ehu-bar *');
     var $hideShowBarSpeed = 'slow';
     var $dhuCloseButton = $('#ehu-close-button'); // close button
     var $dhuOpenButton = $('#ehu-open-button'); // Open button
@@ -10,7 +11,6 @@ jQuery(document).ready(function($) {
     } else {
         var $dhuOpenButtonTop = '10px';
     };
-    // console.log("$dhuOpenButtonTop: "+$dhuOpenButtonTop,"$wpAdminBar :" +$wpAdminBar);
     var $ehuCookie = ehuReadCookie('ehuBarStatus');
     // Check the Cookie
     if ($ehuCookie === 'hidden') {
@@ -24,21 +24,24 @@ jQuery(document).ready(function($) {
     // Check the bar is here
     if (typeof $ehuBar.html() !== 'undefined') {
         $ehuBar.remove();
-        $linkColor = $ehuBar.attr('data-bar-link-color');
-        $barLocatoin = $ehuBar.attr('data-bar-location');
+        var $barTextColor = $ehuBar.attr('data-bar-text-color');
+        var $linkColor    = $ehuBar.attr('data-bar-link-color');
+        var $barLocation  = $ehuBar.attr('data-bar-location');
 
-        if ($barLocatoin == 'top') {
+        if ($barLocation == 'top') {
             $ehuBar.prependTo('body');
         } else {
             $ehuBar.appendTo('body');
         };
-
+        $ehuBarContent.css({
+          'color': $barTextColor
+        });
         $ehuBarLinks.css({
             'color': $linkColor
         });
 
         if (typeof $dhuCloseButton.html() !== 'undefined') {
-            if ($barLocatoin == 'top') {
+            if ($barLocation == 'top') {
                 $dhuOpenButton.css({
                     'top': $dhuOpenButtonTop
                 });
@@ -67,7 +70,7 @@ jQuery(document).ready(function($) {
                     'visibility': 'hidden'
                 });
                 $ehuBar.slideDown($hideShowBarSpeed, function() {
-                    if ($barLocatoin == 'top') {
+                    if ($barLocation == 'top') {
                         window.scrollTo(0, 0);
                     } else {
                         window.scrollTo(0, $dhuOpenButtonTop);

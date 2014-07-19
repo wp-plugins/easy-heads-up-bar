@@ -1,10 +1,10 @@
 === Easy Heads Up Bar ===
 Contributors: Greenweb
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7YA9D9G4TE9BA
-Tags: heads up bar, heads up, heads up, heads up bar, Callout Bar, top of the page, notification bar, notification, self promotion, floating-bar, beforesite
+Tags: heads up bar, heads up, heads up, heads up bar, Callout Bar, top of the page, notification bar, notification, self promotion, floating-bar, beforesite, action bar, alert bar
 Requires at least: 3.9
 Tested up to: 3.9.9
-Stable tag: 2.1.4
+Stable tag: 2.1.5
 License: GPLv2 or later
  
 The Easy Heads Up Bar Plugin allows you to quickly add a customizable notification bar to your WordPress website.
@@ -78,6 +78,11 @@ Install the plugin via WordPress's installation system then activate it.
 6. New features added to version 2 of the Easy Heads Up Bar
 
 == Changelog ==
+
+= 2.1.5 =
+
+Addressing a minor display bug introduced in v 2.1.4
+
 = 2.1.4 =
 
 Wrote a function to stop the shareaholic plugin from pushing the social links onto the plugin bar

@@ -156,18 +156,5 @@ function array_random($arr, $num = 1) {
     return $num == 1 ? $r[0] : $r;
 }
 
-/**
- * clean up shareaholic's inks that they seem fit to push the social links on every custom post type 
- * @since 2.1.4
- **/
-function ehu_clean_up_shareaholic() 
-{
-  if(class_exists('ShareaholicPublic')){
-    if (has_action( 'the_content', array('ShareaholicPublic','draw_canvases') )) {
-      remove_action( 'the_content', array('ShareaholicPublic','draw_canvases') );
-    }    
-  }
-}
-
 
 //EOF 

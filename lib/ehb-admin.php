@@ -20,10 +20,14 @@ class ehbAdmin
     if ( 'edit-heads_up_bar' !== $screen->id ) // Return early if we're not on the esu options page.
       return;
     // Setup help tab args.
-    $making_use_of_txt =  '<h3>'.__('Using Easy Heads Up Bar','ehb_lang').'</h3>';
-    $ehb_forum_text  = "<p>". __("If you need support or want to suggest improvements to the plugin please visit the ",'ehb_lang');
-    $ehb_forum_text .= '<a href="http://wordpress.org/support/plugin/easy-heads-up-bar/" target="_blank">'.__("support forum",'ehb_lang').'</a>';
-    $ehb_forum_text .= __(" or ",'ehb_lang').'<a href="http://wordpress.org/plugins/easy-heads-up-bar/faq/" target="_blank">'.__("FAQ page",'ehb_lang').'</a></p>';
+    $making_use_of_txt = '<h3>'.__('Using Easy Heads Up Bar','ehb_lang').'</h3>';
+    $ehb_forum_text    = '<p>'. __("If you need support or want to suggest improvements to the plugin please visit the ",'ehb_lang');
+    $ehb_forum_text   .= ' <a href="http://wordpress.org/support/plugin/easy-heads-up-bar/" target="_blank">'.__("support forum",'ehb_lang').'</a>';
+    $ehb_forum_text   .= __(" or ",'ehb_lang').'<a href="http://wordpress.org/plugins/easy-heads-up-bar/faq/" target="_blank">'.__("FAQ page",'ehb_lang').'</a></p>';
+    $ehb_forum_text   .= '<h3>'.__('If you like this plugin please spread the word!','ehb_lang').'</h3>'; 
+    $ehb_forum_text   .= '<p>'. __('This plugin has cost me many hours of work, if you use it, please','ehb_lang');
+    $ehb_forum_text   .= ' <strong><a href="http://wordpress.org/support/view/plugin-reviews/easy-heads-up-bar">'.__('rate the plugin <span title="Five Stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> on WordPress.org','ehb_lang').'</a></strong></p>'; 
+    $ehb_forum_text   .= '<p><strong>&#9733; <a href="http://www.greenvilleweb.us/services/?ref=ehb_plugin_services" title="'.__("Need WordPress help?",'ehb_lang').'">'.__("Need WordPress help? Hire me for custom Themes and Plugins",'ehb_lang').'</a> &#9733;</strong></p>';
 
     $making_use_of_args = array(
       'id'      => 'ehb_making_use_of_tab', //unique id for the tab
@@ -187,7 +191,5 @@ class ehbAdmin
   }
 
 }
-
-
 
 // EOF 

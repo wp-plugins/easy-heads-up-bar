@@ -81,7 +81,7 @@ class ehbAdmin
       'show_in_menu'        => true,
       'show_in_nav_menus'   => false,
       'show_in_admin_bar'   => true,
-      'menu_position'       => 100,
+      'menu_position'       => 100912,
       'menu_icon'           => 'dashicons-megaphone',
       'can_export'          => true,
       'has_archive'         => false,
